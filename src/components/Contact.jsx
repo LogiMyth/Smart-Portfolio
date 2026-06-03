@@ -1,20 +1,38 @@
 import { useState } from "react";
 
-function Contact() {
+function Contact({ setRefresh }) {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  const handleSubmit = async (e) => {
+  e.preventDefault();
 
-    alert(
-      `Name: ${name}\nEmail: ${email}\nMessage: ${message}`
-    );
-    setName("");
-    setEmail("");
-    setMessage("");
+  const data = {
+    name,
+    email,
+    message,
   };
+
+  const response = await fetch(
+    "http://localhost:5000/contact",
+    {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    }
+  );
+
+  const result = await response.text();
+
+  alert(result);
+  setRefresh((prev) => !prev);
+  setName("");
+  setEmail("");
+  setMessage("");
+};
 
   return (
     <section id="contact" data-aos="fade-up">

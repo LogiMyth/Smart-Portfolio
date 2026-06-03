@@ -8,8 +8,12 @@ import Navbar from "./components/Navbar";
 import Projects from "./components/Projects";
 import Footer from "./components/Footer";
 import Skills from "./components/Skills";
+import Messages from "./components/Messages";
+import { useState } from "react";
+
 
 function App() {
+  const [refresh, setRefresh] = useState(false);
   useEffect(() => {
   AOS.init({
     duration: 1000,
@@ -24,7 +28,8 @@ function App() {
       <Skills />
       <About />
       <Projects />
-      <Contact />
+      <Contact setRefresh={setRefresh} />
+      <Messages refresh={refresh} />
       <Footer />
     </div>
   );

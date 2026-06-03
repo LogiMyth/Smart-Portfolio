@@ -3,7 +3,7 @@ import { FaGithub, FaLinkedin, FaInstagram } from "react-icons/fa";
 
 function Hero() {
   const [message, setMessage] = useState(
-    "Future Full Stack Developer | React Learner"
+    "Java Developer | Full-Stack Web Builder"
   );
 
   return (
@@ -12,19 +12,19 @@ function Hero() {
 
       <div className="hero-content">
         <h1>
-          Hi, I'm <span>Cyber Eagle</span>
+          Hi, I'm <span>Himanshu</span>
         </h1>
 
         <p>{message}</p>
 
         <div className="hero-buttons">
-          <button
+          {/* <button
             onClick={() =>
               setMessage("Building projects for Resume & GitHub 🚀")
             }
           >
             Change Text
-          </button>
+          </button> */}
 
           <a href="#projects">
             <button>View Projects</button>

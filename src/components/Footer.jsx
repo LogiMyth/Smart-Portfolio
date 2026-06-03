@@ -1,7 +1,7 @@
 function Footer() {
   return (
     <footer>
-      <p>© 2026 Cyber Eagle | Built with React 🚀</p>
+      <p>© 2026 LogiMyth | Built with React 🚀</p>
     </footer>
   );
 }
