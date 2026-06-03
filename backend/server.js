@@ -26,6 +26,7 @@ mongoose
 app.use(
   cors({
     origin: [
+      "http://localhost:5173",
       "https://smart-portfolio-jlxx.vercel.app"
     ],
   })
