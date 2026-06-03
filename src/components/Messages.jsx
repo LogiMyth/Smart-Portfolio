@@ -4,7 +4,7 @@ function Messages({ refresh }) {
   const [messages, setMessages] = useState([]);
 
   const fetchMessages = () => {
-    fetch("http://localhost:5000/messages")
+    fetch("https://smart-portfolio-backend-kv3r.onrender.com/messages")
       .then((res) => res.json())
       .then((data) => {
         setMessages(data);

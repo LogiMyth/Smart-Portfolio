@@ -15,7 +15,7 @@ function Contact({ setRefresh }) {
   };
 
   const response = await fetch(
-    "http://localhost:5000/contact",
+    "https://smart-portfolio-backend-kv3r.onrender.com/contact",
     {
       method: "POST",
       headers: {

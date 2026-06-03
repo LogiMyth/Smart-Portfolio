@@ -23,7 +23,13 @@ mongoose
   .then(() => console.log("MongoDB Connected 😄"))
   .catch((err) => console.log(err));
 
-app.use(cors());
+app.use(
+  cors({
+    origin: [
+      "https://smart-portfolio-jlxx.vercel.app"
+    ],
+  })
+);
 app.use(express.json());
 
 app.get("/", (req, res) => {
