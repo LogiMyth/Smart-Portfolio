@@ -1,4 +1,27 @@
-# React + Vite
+Smart Portfolio
+
+Tech Stack:
+- React
+- Express.js
+- MongoDB Atlas
+- Mongoose
+- Nodemailer
+- Vercel
+- Render
+
+Features:
+- Contact Form
+- Email Notifications
+- MongoDB Storage
+- Responsive Design
+- Full Stack Deployment
+
+
+
+
+
+
+- # React + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
