@@ -3,6 +3,9 @@ const cors = require("cors");
 const mongoose = require("mongoose");
 const Message = require("./models/Message");
 const nodemailer = require("nodemailer");
+const Admin = require("./models/Admin");
+const bcrypt = require("bcryptjs");
+const jwt = require("jsonwebtoken");
 
 
 require("dotenv").config();
@@ -32,6 +35,28 @@ app.use(
   })
 );
 app.use(express.json());
+
+function auth(req, res, next) {
+  try {
+    const token = req.header("Authorization");
+
+    if (!token) {
+      return res.status(401).send("Access Denied");
+    }
+
+    const verified = jwt.verify(
+      token,
+      process.env.JWT_SECRET
+    );
+
+    req.admin = verified;
+
+    next();
+
+  } catch (error) {
+    res.status(401).send("Invalid Token");
+  }
+}
 
 app.get("/", (req, res) => {
   res.send("Home Route 🚀");
@@ -82,7 +107,7 @@ app.post("/contact", async (req, res) => {
     res.status(500).send("Error saving message");
   }
 });
-app.get("/messages", async (req, res) => {
+app.get("/messages", auth , async (req, res) => {
   try {
     const messages = await Message.find();
 
@@ -92,6 +117,71 @@ app.get("/messages", async (req, res) => {
     res.status(500).send("Error fetching messages");
   }
 });
+// app.get("/create-admin", async (req, res) => {
+//   try {
+//     const hashedPassword = await bcrypt.hash("vinay123", 10);
+
+//     const admin = new Admin({
+//       email: "admin@gmail.com",
+//       password: hashedPassword,
+//     });
+
+//     await admin.save();
+
+//     res.send("Admin created ✅");
+//   } catch (error) {
+//     console.log(error);
+//     res.send("Error creating admin");
+//   }
+// });
+app.post("/login", async (req, res) => {
+  // console.log("BODY:", req.body);
+
+  try {
+    const { email, password } = req.body;
+
+    // console.log("Email:", email);
+
+    const admin = await Admin.findOne({ email });
+
+    // console.log("Admin found:", admin);
+
+    if (!admin) {
+      return res.status(401).send("Invalid email");
+    }
+
+    const isMatch = await bcrypt.compare(
+      password,
+      admin.password
+    );
+
+    // console.log("Password Match:", isMatch);
+
+    if (!isMatch) {
+      return res.status(401).send("Invalid password");
+    }
+
+    const token = jwt.sign(
+      {
+        adminId: admin._id,
+      },
+      process.env.JWT_SECRET,
+      {
+        expiresIn: "1d",
+      }
+    );
+
+    res.json({ token });
+
+  } catch (error) {
+    console.log(error);
+    res.status(500).send("Login failed");
+  }
+});
 app.listen(5000, () => {
   console.log("Server running on port 5000");
+});
+app.get("/admins", async (req, res) => {
+  const admins = await Admin.find();
+  res.json(admins);
 });
