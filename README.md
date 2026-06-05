@@ -1,12 +1,26 @@
 # Smart Portfolio 🚀
 
-A full-stack portfolio website built using React, Express.js, MongoDB Atlas, and Nodemailer. The project allows visitors to contact me through a form, stores messages in MongoDB, and sends real-time email notifications.
+A full-stack portfolio website built with React, Express.js, MongoDB Atlas, and JWT Authentication.
 
 ## 🌐 Live Demo
 
-**Frontend:** https://smart-portfolio-jlxx.vercel.app
+Frontend: https://smart-portfolio-jlxx.vercel.app
 
-**Backend:** https://smart-portfolio-backend-kv3r.onrender.com
+Backend: https://smart-portfolio-backend-kv3r.onrender.com
+
+---
+
+## 📌 Features
+
+* Responsive Portfolio Website
+* Contact Form
+* MongoDB Atlas Database Integration
+* Email Notifications with Nodemailer
+* Admin Login System
+* JWT Authentication
+* Protected Admin Dashboard
+* View Contact Messages
+* Full Stack Deployment
 
 ---
 
@@ -14,25 +28,23 @@ A full-stack portfolio website built using React, Express.js, MongoDB Atlas, and
 
 ### Frontend
 
-* React.js
-* JavaScript
+* React
+* React Router DOM
 * CSS
-* Fetch API
+* AOS (Animate On Scroll)
 
 ### Backend
 
-* Node.js
 * Express.js
+* Node.js
+* JWT Authentication
+* Bcrypt
+* Nodemailer
 
 ### Database
 
 * MongoDB Atlas
 * Mongoose
-
-### Additional Services
-
-* Nodemailer
-* Gmail SMTP
 
 ### Deployment
 
@@ -41,28 +53,64 @@ A full-stack portfolio website built using React, Express.js, MongoDB Atlas, and
 
 ---
 
-## ✨ Features
-
-* Responsive Portfolio Website
-* Contact Form Integration
-* Real-Time Email Notifications
-* MongoDB Database Storage
-* REST API Integration
-* Full-Stack Deployment
-* Cross-Origin Resource Sharing (CORS) Support
-
----
-
 ## 📂 Project Structure
 
 smart-portfolio/
+
 ├── src/
-├── public/
+
+│   ├── components/
+
+│   ├── pages/
+
+│   │   ├── AdminLogin.jsx
+
+│   │   └── Dashboard.jsx
+
+│   └── App.jsx
+
+│
+
 ├── backend/
+
 │   ├── models/
+
 │   ├── server.js
-│   └── package.json
+
+│   └── .env
+
+│
+
 └── README.md
+
+---
+
+## 🔐 Authentication Flow
+
+1. Admin enters email and password.
+2. Backend verifies credentials.
+3. JWT token is generated.
+4. Token is stored in localStorage.
+5. Protected routes require a valid JWT token.
+6. Admin dashboard can access messages only after successful authentication.
+
+---
+
+## 📩 Contact Workflow
+
+Visitor submits contact form
+
+↓
+
+Data stored in MongoDB Atlas
+
+↓
+
+Email notification sent using Nodemailer
+
+↓
+
+Admin can view messages from Dashboard
 
 ---
 
@@ -70,35 +118,54 @@ smart-portfolio/
 
 ### Clone Repository
 
-git clone <repository-url>
+```bash
+git clone https://github.com/LogiMyth/Smart-Portfolio.git
+cd Smart-Portfolio
+```
 
-### Install Frontend Dependencies
+### Frontend Setup
 
+```bash
 npm install
-
-### Install Backend Dependencies
-
-cd backend
-npm install
-
-### Run Frontend
-
 npm run dev
+```
 
-### Run Backend
+### Backend Setup
 
-node server.js
+```bash
+cd backend
+
+npm install
+
+npm start
+```
 
 ---
 
-## 📧 Contact Form Workflow
+## 🔑 Environment Variables
 
-Visitor
-→ React Frontend
-→ Express Backend
-→ MongoDB Atlas
-→ Email Notification (Nodemailer)
-→ Inbox
+Create a `.env` file inside the backend folder.
+
+```env
+MONGO_URI=your_mongodb_connection_string
+
+EMAIL_USER=your_email
+
+EMAIL_PASS=your_app_password
+
+JWT_SECRET=your_secret_key
+```
+
+---
+
+## 📸 Screenshots
+
+Add screenshots of:
+
+* Home Page
+* Contact Form
+* Admin Login
+* Dashboard
 
 ---
 
@@ -106,4 +173,18 @@ Visitor
 
 Himanshu Upadhyay
 
-Built as a learning project to understand full-stack web development, database integration, API development, and deployment.
+GitHub: https://github.com/LogiMyth
+
+---
+
+## ⭐ Future Improvements
+
+* Delete Messages
+* Mark Messages as Read
+* Admin Logout
+* Better Dashboard UI
+* Role-Based Authentication
+
+---
+
+If you like this project, consider giving it a ⭐ on GitHub.
