@@ -10,7 +10,7 @@ import Navbar from "./components/Navbar";
 import Projects from "./components/Projects";
 import Footer from "./components/Footer";
 import Skills from "./components/Skills";
-import Messages from "./components/Messages";
+// import Messages from "./components/Messages";
 
 import AdminLogin from "./pages/AdminLogin";
 import Dashboard from "./pages/Dashboard";
@@ -24,7 +24,7 @@ function HomePage({ refresh, setRefresh }) {
       <About />
       <Projects />
       <Contact setRefresh={setRefresh} />
-      <Messages refresh={refresh} />
+      {/* <Messages refresh={refresh} /> */}
       <Footer />
     </>
   );

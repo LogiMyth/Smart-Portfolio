@@ -1,7 +1,7 @@
 function Navbar() {
   return (
     <nav>
-      <h2>Cyber Eagle</h2>
+      <h2>Anshu</h2>
 
       <div className="nav-links">
         <a href="#home">Home</a>

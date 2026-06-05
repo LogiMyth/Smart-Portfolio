@@ -4,8 +4,12 @@ function Dashboard() {
   const [messages, setMessages] = useState([]);
 
   useEffect(() => {
-    fetchMessages();
-  }, []);
+  const token = localStorage.getItem("token");
+
+  if (!token) {
+    window.location.href = "/admin";
+  }
+}, []);
 
   const fetchMessages = async () => {
     const token = localStorage.getItem("token");

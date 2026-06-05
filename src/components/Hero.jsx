@@ -30,16 +30,36 @@ function Hero() {
             <button>View Projects</button>
           </a>
 
-          <a href="/Resume.pdf" download>
+          <a href="/Himanshu Upadhyay.pdf" download>
             <button>Download Resume</button>
           </a>
         </div>
 
         <div className="social-icons">
-          <FaGithub />
-          <FaLinkedin />
-          <FaInstagram />
-        </div>
+  <a
+    href="https://github.com/LogiMyth"
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    <FaGithub />
+  </a>
+
+  <a
+    href="https://linkedin.com/in/LogiMyth"
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    <FaLinkedin />
+  </a>
+
+  <a
+    href="https://instagram.com/him_anshu.740"
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    <FaInstagram />
+  </a>
+</div>
       </div>
     </section>
   );

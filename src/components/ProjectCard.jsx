@@ -21,13 +21,13 @@ function ProjectCard({
         ))}
       </div>
 
-      <p>❤️ Likes: {likes}</p>
+      {/* <p>❤️ Likes: {likes}</p>
 
       <button
         onClick={() => setLikes(likes + 1)}
       >
         Like Project
-      </button>
+      </button> */}
 
       <br /><br />
 
