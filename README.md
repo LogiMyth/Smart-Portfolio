@@ -156,19 +156,6 @@ EMAIL_PASS=your_app_password
 JWT_SECRET=your_secret_key
 ```
 
----
-
-## 📸 Screenshots
-
-Add screenshots of:
-
-* Home Page
-* Contact Form
-* Admin Login
-* Dashboard
-
----
-
 ## 👨‍💻 Author
 
 Himanshu Upadhyay
