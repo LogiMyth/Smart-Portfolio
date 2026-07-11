@@ -162,7 +162,6 @@ Himanshu Upadhyay
 
 GitHub: https://github.com/LogiMyth
 
----
 
 ## ⭐ Future Improvements
 
